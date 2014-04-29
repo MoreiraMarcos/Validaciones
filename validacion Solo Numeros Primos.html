@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Validar numeros primos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            #espacio{
+                text-align:left;
+                float:left;
+                border:2px solid black;
+                border-radius:6px;
+                margin-left:25%;
+                margin-top:5%;
+            }
+            #estado{
+                float:left;
+                margin-left:1%;
+                margin-top:5%;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div id="espacio">
+                validar numero: <input type="text" id="num" name="num" value="0" onkeyup="validar(this.value)" ><br>
+                <input type="button" value="validar" onclick="funciones()" >
+            </div>
+            <div id="estado">
+                
+            </div>
+        </center>
+    </body>
+</html>
+<script>
+    var s="";
+    function funciones()
+    {
+        validar('num');
+    }
+
+	function validar(numero)
+	{
+        var cadena = document.getElementById(numero).value;
+        var aux=2;
+        for(i=2; i<cadena; i++){
+            if(cadena%i == 0){
+                aux++;
+                break;
+            }
+        }
+        if(aux == 2){
+            alert("Es Primo")
+        }else{
+            alert("No es primo")
+        }
+	}
+</script>
