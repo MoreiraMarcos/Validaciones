@@ -10,30 +10,20 @@
                 float:left;
                 border:2px solid black;
                 border-radius:6px;
-                margin-left:25%;
-                margin-top:5%;
-            }
-            #estado{
-                float:left;
-                margin-left:1%;
-                margin-top:5%;
+                margin-left:0%;
+                margin-top:0%;
             }
         </style>
     </head>
     <body>
-        <center>
-            <div id="espacio">
-                validar numero: <input type="text" id="num" name="num" value="0" onkeyup="validar(this.value)" ><br>
-                <input type="button" value="validar" onclick="funciones()" >
-            </div>
-            <div id="estado">
-                
-            </div>
-        </center>
+        <div id="espacio">
+            validar numero: <input type="text" id="num" name="num" value="0" ><br>
+            <input type="button" value="validar" onclick="funciones()" >
+        </div>
     </body>
 </html>
 <script>
-    var s="";
+    
     function funciones()
     {
         validar('num');
