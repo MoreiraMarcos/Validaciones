@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<title>Funciones con dos parametros</title>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <style type="text/css">
+            #espacio{
+                text-align:right;
+                float:left;
+                border:1px solid blue;
+                border-radius:5px;
+                margin-left:35%;
+                margin-top:1%;
+            }
+            #estado{
+                float:left;
+                margin-left:1%;
+                margin-top:17%;
+            }
+        </style>
+	</head>
+	<body>
+	<center><h1>Suma de parámetros siendo estos números binarios</h1></center>
+		<div id="espacio">
+		Ingrese el primer  valor:&nbsp;&nbsp;&nbsp;	<input type="text" id="valor1" name="valor1" onkeyup="validacion(this.value)" oninput="validarNumeros(this.value)"/><br>
+		Ingrese el segundo valor:	<input type="text" id="valor2" name="valor2" onkeyup="validacion(this.value)" oninput="validarNumeros(this.value)"/><br>	
+		<input type="button" value="Calcular" onclick="calcularsuma()" >
+		</div>
+	</body>
+</html>
+<script>
+
+
+	function validacion(valor)
+	{
+		for(i=0; i<valor.length; i++)
+		{
+			if(valor.substring(i,i+1)!="0" && valor.substring(i,i+1)!="1")
+			{
+				alert("dato ingresado debe ser binario");
+
+			}
+		}
+		
+	}
+
+	function calcularsuma(){
+		var a=document.getElementById("valor1").value;
+		var b=document.getElementById("valor2").value;
+		
+		a=parseInt(a,2);
+		b=parseInt(b,2);
+		var c =a+b;
+		
+		var resultado = c.toString(2);
+		alert(""+resultado);
+	}
+
+
+	function  validarNumeros(valorActual)
+	{
+		var semaforo=0;
+		for (i=0;i<valorActual.length;i++)
+		{
+			for	 (j=0;j<9;j++)
+			{
+				if (valorActual.substring(i,i+1)==j)
+				{
+						semaforo++;
+				}
+			}
+		}
+		if (semaforo==0)
+		{
+			alert("Dato no es numérico");
+		}
+	}
+
+</script>
