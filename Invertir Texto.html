@@ -3,43 +3,50 @@
 		<title>Invertir texto</title>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <style type="text/css">
+            #espacio{
+                text-align:right;
+                float:left;
+                border:1px solid blue;
+                border-radius:6px;
+                margin-left:40%;
+                margin-top:1%;
+            }
+        </style>
 	</head>
 	<body>
-		<div>Invertir texto</div>
-		<input type="text" id="texto1" name="texto1" oninput="validarNumeros(this.value)">
-		<input type="text" id="texto2" name="texto2" oninput="validarNumeros(this.value)">
-		<input type="button" value="Buscar" onclick="invertir()" >
+	<center><h1>INVERTIR TEXTO</h1></center>
+		<div id="espacio">
+		Escribir Texto: <input type="text" id="texto1" name="texto1" ><br>
+		<input type="button" value="Invertir" onclick="validar(this.value)" ><input type="text" id="texto2" name="texto2" >
+		</div>
 	</body>
 </html>
 <script>
+function validar(){
+	solo_letras('texto1')
+	invertir(document.getElementById("texto1").value)
+}
 	function invertir(cadena) {
-  var x = cadena.length;
-  var cadenaInvertida = "";
+	
+  	var x = cadena.length;
+  	var cadenaInvertida = "";
  
   while (x>=0) {
     cadenaInvertida = cadenaInvertida + cadena.charAt(x);
     x--;
   }
-  return cadenaInvertida;
+  
+  document.getElementById("texto2").value=cadenaInvertida;
 }
 
-function  validarNumeros(valorActual)
-	{
-		var semaforo=0;
-		for (i=0;i<valorActual.length;i++)
-		{
-			for	 (j=0;j<9;j++)
-			{
-				if (valorActual.substring(i,i+1)==j)
-				{
-						semaforo++;
-				}
-			}
-		}
-		if (semaforo==0)
-		{
-			alert("Dato no es numérico");
-		}
+function solo_letras(identifica){
+	var cadena = document.getElementById(identifica).value;
+	if(/^[A-Z\a-z]+[A-Z\a-z]$/.test(cadena)){
+		
+	}else{
+		alert("Solo letras")
 	}
+}
 
 </script>
