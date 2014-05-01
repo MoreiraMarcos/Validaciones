@@ -51,7 +51,53 @@
                 
                 }
         </style>
-        <script>
+        
+    </head>
+    <body onload="datos()" bgcolor=white >
+     
+            <div class="example">
+                <center><h1> FACTURA ELECTRONICA</h1></center>
+                <center><h1> FACCI</h1></center>
+                <div id="espacio" >
+                    <fieldset>
+                        <font color =#250D26/>
+                        <div class="example">
+                            <h3>
+                                 Escoja cliente: <select id="listaClientes"></select><br>
+                                <hr>
+                                Producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                Precio Unitario &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Cantidad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Total:<br>
+                                <select id="listaProducto"></select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" id="precioUnit" />
+                                    <input type="text" id="cantidad" onchange="total()"/>
+                                    <input type="text" id="total"/>
+                                <center><input type="button" id="agregar" value="Agregar" onclick="crearFilaProductoIngresado()"/><br></center>
+                                <hr><hr>
+                                <br>
+                                Compras: <br>
+                                <label for="lb_desc" style="margin-left:7%;">Producto</label>
+                                <label for="lb_can" style="margin-left:17%;">Precio</label>
+                                <label for="lb_pre" style="margin-left:17%;">Cantidad </label>
+                                <label for="lb_pre" style="margin-left:11%;">Total </label>
+                            </h3>
+                            
+                            <div id="contenido">
+
+                            </div>
+                            <hr>
+                            Subtotal:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="subtotal" value="0"/><br>
+                            IVA 12%:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="iva"/><br>
+                            Descuento 50%: <input type="text" id="descuento"/><br>
+                            Total Final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="totalFinal"/><br>
+                        </div>
+                    </fieldset>
+                </div> 
+            </div>
+    </body>
+</html>
+<script>
             function datos() {
                 var clientes = ["Marcos", "Antonio", "Moreira", "Baque"];
                 var productos = ["Laptos", "Monitores", "CPU", "Teclados"];
@@ -98,48 +144,3 @@
             }
 
         </script>
-    </head>
-    <body onload="datos()" bgcolor=white >
-     
-            <div class="example">
-                <center><h1> FACTURA ELECTRONICA</h1></center>
-                <center><h1> FACCI</h1></center>
-                <div id="espacio" >
-                    <fieldset>
-                        <font color =#250D26/>
-                        <div class="example">
-                            <h3>
-                                 Escoja cliente: <select id="listaClientes"></select><br>
-                                <hr>
-                                Producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                Precio Unitario &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Cantidad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Total:<br>
-                                <select id="listaProducto"></select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="text" id="precioUnit" />
-                                    <input type="text" id="cantidad" onchange="total()"/>
-                                    <input type="text" id="total"/>
-                                <center><input type="button" id="agregar" value="Agregar" onclick="crearFilaProductoIngresado()"/><br></center>
-                                <hr><hr>
-                                <br>
-                                Compras: <br>
-                                <label for="lb_desc" style="margin-left:7%;">Producto</label>
-                                <label for="lb_can" style="margin-left:17%;">Precio</label>
-                                <label for="lb_pre" style="margin-left:17%;">Cantidad </label>
-                                <label for="lb_pre" style="margin-left:11%;">Total </label>
-                            </h3>
-                            
-                            <div id="contenido">
-
-                            </div>
-                            <hr>
-                            Subtotal:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="subtotal" value="0"/><br>
-                            IVA 12%:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="iva"/><br>
-                            Descuento 50%: <input type="text" id="descuento"/><br>
-                            Total Final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="totalFinal"/><br>
-                        </div>
-                    </fieldset>
-                </div> 
-            </div>
-    </body>
-</html>
