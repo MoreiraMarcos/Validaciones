@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Factura</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+        #espacio{
+                text-align:left;
+                float:center;
+                border:3px solid black;
+                border-radius:6px;
+                margin-left:20%;
+                margin-right:20%;
+                margin-top:1%;
+            }
+            .example {
+              font-size: 15px;
+              
+              color: black;
+             }
+             form fieldset
+                {
+                    float: center;
+                    width: 97%;
+                    background-color:#E8E8E8;
+                    
+                    padding:8px;
+                    border-style:solid;
+                    border-width:5px;
+                    border-color:black;
+                }
+                
+            input[type='button']
+                {
+                    border:none;
+                    padding:5px 10px;
+                    border-radius:6px;
+                    background-color:#808080;
+                    color:""black;
+                    font-weight: bolder;
+                    font-size: 20px;
+                    }
+            input[type='text']
+                {
+                    border-color:black;
+                    width:23%;
+                
+                
+                
+                }
+        </style>
+        <script>
+            function datos() {
+                var clientes = ["Marcos", "Antonio", "Moreira", "Baque"];
+                var productos = ["Laptos", "Monitores", "CPU", "Teclados"];
+                var listaClientesDatos = document.getElementById('listaClientes');
+                for (var i = 0; i < clientes.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.innerHTML = clientes[i];
+                    opt.value = clientes[i];
+                    listaClientesDatos.appendChild(opt);
+                }
+                var listaProductosDatos = document.getElementById('listaProducto');
+                for (var i = 0; i < productos.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.innerHTML = productos[i];
+                    opt.value = productos[i];
+                    listaProductosDatos.appendChild(opt);
+                }
+
+            }
+            function total() {
+                var unitario = document.getElementById('precioUnit').value;
+                var cantidad = document.getElementById('cantidad').value;
+                var total = parseFloat(unitario) * parseFloat(cantidad);
+                document.getElementById('total').value = total;
+            }
+            function crearFilaProductoIngresado() {
+                var subtotal = document.getElementById('subtotal').value;
+                document.getElementById('subtotal').value = parseFloat(subtotal) + parseFloat(document.getElementById('total').value);
+                var subtotalNuevo = document.getElementById('subtotal').value;
+                document.getElementById('iva').value = parseFloat(subtotalNuevo) * 0.12;
+                var ivaNuevo = document.getElementById('iva').value;
+                document.getElementById('descuento').value = (parseFloat(subtotalNuevo) + parseFloat(ivaNuevo)) * 0.50;
+                var descuentoNuevo = document.getElementById('descuento').value;
+                document.getElementById('totalFinal').value = (parseFloat(subtotalNuevo) + parseFloat(ivaNuevo)) - parseFloat(descuentoNuevo);
+                capotTexto = document.createElement('input');
+                capotTexto.type = "text";
+                capotTexto.name = "producto";
+                capotTexto.id = "produc";
+                capotTexto.value = document.getElementById('listaProducto').value + '     -     ' + document.getElementById('precioUnit').value + '     -     ' + document.getElementById('cantidad').value + '     -     ' + document.getElementById('total').value;
+                capotTexto.size = "50";
+                document.getElementById('contenido').appendChild(capotTexto);
+                salto = document.createElement('br');
+                document.getElementById('contenido').appendChild(salto);
+            }
+
+        </script>
+    </head>
+    <body onload="datos()" bgcolor=white >
+     
+            <div class="example">
+                <center><h1> FACTURA ELECTRONICA</h1></center>
+                <center><h1> FACCI</h1></center>
+                <div id="espacio" >
+                    <fieldset>
+                        <font color =#250D26/>
+                        <div class="example">
+                            <h3>
+                                 Escoja cliente: <select id="listaClientes"></select><br>
+                                <hr>
+                                Producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                Precio Unitario &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Cantidad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Total:<br>
+                                <select id="listaProducto"></select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" id="precioUnit" />
+                                    <input type="text" id="cantidad" onchange="total()"/>
+                                    <input type="text" id="total"/>
+                                <center><input type="button" id="agregar" value="Agregar" onclick="crearFilaProductoIngresado()"/><br></center>
+                                <hr><hr>
+                                <br>
+                                Compras: <br>
+                                <label for="lb_desc" style="margin-left:7%;">Producto</label>
+                                <label for="lb_can" style="margin-left:17%;">Precio</label>
+                                <label for="lb_pre" style="margin-left:17%;">Cantidad </label>
+                                <label for="lb_pre" style="margin-left:11%;">Total </label>
+                            </h3>
+                            
+                            <div id="contenido">
+
+                            </div>
+                            <hr>
+                            Subtotal:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="subtotal" value="0"/><br>
+                            IVA 12%:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="iva"/><br>
+                            Descuento 50%: <input type="text" id="descuento"/><br>
+                            Total Final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="totalFinal"/><br>
+                        </div>
+                    </fieldset>
+                </div> 
+            </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+        
+        
+    </body>
+</html>
